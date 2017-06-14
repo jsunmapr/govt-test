@@ -480,6 +480,7 @@
                 "storageProfile": {
                 "osDisk" : {
                     "name": "osDisk",
+                    "osType": "Linux",
                     "createOption": "FromImage",
                     "vhd": {
                     "uri": "[concat('http://', 'maprsa.blob.local.azurestack.external/vhds/', parameters('vmName'), '-osdisk.vhd')]"
