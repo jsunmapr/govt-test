@@ -146,7 +146,7 @@
         "uniqueString": "[substring(uniqueString(resourceGroup().id),0,8)]",
         "cldbNodeCount": 3,
         "nonCldbNodeCount": "[sub(parameters('clusterSize'), variables('cldbNodeCount'))]",
-        "nonCldbNodeDeploy": "true"
+        "nonCldbNodeDeploy": "false"
     },
     "resources": [
         {
