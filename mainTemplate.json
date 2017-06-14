@@ -161,7 +161,7 @@
                 },
                 "parameters": {
                     "providerID": {
-                         "value": "[parameters('providerID')]"
+                         "value": "[variables('providerID')]"
                     },
                     "clusterSize": {
                         "value": "[parameters('clusterSize')]"
@@ -223,7 +223,7 @@
                 },
                 "parameters": {
                     "providerID": {
-                        "value": "[parameters('providerID')]"
+                        "value": "[variables('providerID')]"
                     },
                     "roleType": {
                         "value": "cldb"
@@ -279,7 +279,7 @@
                 },
                 "parameters": {
                     "providerID": {
-                         "value": "[parameters('providerID')]"
+                         "value": "[variables('providerID')]"
                     },
                     "roleType": {
                         "value": "nonCldb"
@@ -336,7 +336,7 @@
                 },
                 "parameters": {
                     "providerID": {
-                         "value": "[parameters('providerID')]"
+                         "value": "[variables('providerID')]"
                     },
                     "clusterSize": {
                         "value": "[parameters('clusterSize')]"
