@@ -50,7 +50,7 @@
         "imageOffer" : "MapR",
         "imageSKU" : "MapR",
         "imageVersion": "latest",
-        "storageEndPoint": "[concat(reference(concat('Microsoft.Storage/storageAccounts/',parameters('storageAccountName')), providers('Microsoft.Storage', 'stora    geAccounts').apiVersions[0]).primaryEndpoints.blob, 'vhds/',parameters('vmName'))]",
+        "storageEndPoint": "[concat(reference(concat('Microsoft.Storage/storageAccounts/',parameters('storageAccountName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).primaryEndpoints.blob, 'vhds/',parameters('vmName'))]",
         "sizeOfEachDataDiskInGB": 1023,
         "dd1": "[concat(variables('storageEndPoint'),'-dd1.vhd')]",
         "dd2": "[concat(variables('storageEndPoint'),'-dd2.vhd')]",
