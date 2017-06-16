@@ -46,27 +46,28 @@
         }        
     },
     "variables": {
-        "imagePublisher" : "mapr-technologies",
-        "imageOffer" : "mapr52-base-dev-preview",
-        "imageSKU" : "5202",
+        "imagePublisher" : "MapR",
+        "imageOffer" : "MapR",
+        "imageSKU" : "MapR",
         "imageVersion": "latest",
+        "storageEndPoint": "[concat(reference(concat('Microsoft.Storage/storageAccounts/',parameters('storageAccountName')), providers('Microsoft.Storage', 'stora    geAccounts').apiVersions[0]).primaryEndpoints.blob, 'vhds/',parameters('vmName'))]",
         "sizeOfEachDataDiskInGB": 1023,
-        "dd1": "[concat('http://', parameters('storageAccountName'), '.blob.local.azurestack.external/vhds/', parameters('vmName'), '-dd1.vhd')]",
-        "dd2": "[concat('http://', parameters('storageAccountName'), '.blob.local.azurestack.external/vhds/', parameters('vmName'), '-dd2.vhd')]",
-        "dd3": "[concat('http://', parameters('storageAccountName'), '.blob.local.azurestack.external/vhds/', parameters('vmName'), '-dd3.vhd')]",
-        "dd4": "[concat('http://', parameters('storageAccountName'), '.blob.local.azurestack.external/vhds/', parameters('vmName'), '-dd4.vhd')]",
-        "dd5": "[concat('http://', parameters('storageAccountName'), '.blob.local.azurestack.external/vhds/', parameters('vmName'), '-dd5.vhd')]",
-        "dd6": "[concat('http://', parameters('storageAccountName'), '.blob.local.azurestack.external/vhds/', parameters('vmName'), '-dd6.vhd')]",
-        "dd7": "[concat('http://', parameters('storageAccountName'), '.blob.local.azurestack.external/vhds/', parameters('vmName'), '-dd7.vhd')]",
-        "dd8": "[concat('http://', parameters('storageAccountName'), '.blob.local.azurestack.external/vhds/', parameters('vmName'), '-dd8.vhd')]",
-        "dd9": "[concat('http://', parameters('storageAccountName'), '.blob.local.azurestack.external/vhds/', parameters('vmName'), '-dd9.vhd')]",
-        "dd10": "[concat('http://', parameters('storageAccountName'), '.blob.local.azurestack.external/vhds/', parameters('vmName'), '-dd10.vhd')]",
-        "dd11": "[concat('http://', parameters('storageAccountName'), '.blob.local.azurestack.external/vhds/', parameters('vmName'), '-dd11.vhd')]",
-        "dd12": "[concat('http://', parameters('storageAccountName'), '.blob.local.azurestack.external/vhds/', parameters('vmName'), '-dd12.vhd')]",
-        "dd13": "[concat('http://', parameters('storageAccountName'), '.blob.local.azurestack.external/vhds/', parameters('vmName'), '-dd13.vhd')]",
-        "dd14": "[concat('http://', parameters('storageAccountName'), '.blob.local.azurestack.external/vhds/', parameters('vmName'), '-dd14.vhd')]",
-        "dd15": "[concat('http://', parameters('storageAccountName'), '.blob.local.azurestack.external/vhds/', parameters('vmName'), '-dd15.vhd')]",
-        "dd16": "[concat('http://', parameters('storageAccountName'), '.blob.local.azurestack.external/vhds/', parameters('vmName'), '-dd16.vhd')]",
+        "dd1": "[concat(variables('storageEndPoint'),'-dd1.vhd')]",
+        "dd2": "[concat(variables('storageEndPoint'),'-dd2.vhd')]",
+        "dd3": "[concat(variables('storageEndPoint'),'-dd3.vhd')]",
+        "dd4": "[concat(variables('storageEndPoint'),'-dd4.vhd')]",
+        "dd5": "[concat(variables('storageEndPoint'),'-dd5.vhd')]",
+        "dd6": "[concat(variables('storageEndPoint'),'-dd6.vhd')]",
+        "dd7": "[concat(variables('storageEndPoint'),'-dd7.vhd')]",
+        "dd8": "[concat(variables('storageEndPoint'),'-dd8.vhd')]",
+        "dd9": "[concat(variables('storageEndPoint'),'-dd9.vhd')]",
+        "dd10": "[concat(variables('storageEndPoint'),'-dd10.vhd')]",
+        "dd11": "[concat(variables('storageEndPoint'),'-dd11.vhd')]",
+        "dd12": "[concat(variables('storageEndPoint'),'-dd12.vhd')]",
+        "dd13": "[concat(variables('storageEndPoint'),'-dd13.vhd')]",
+        "dd14": "[concat(variables('storageEndPoint'),'-dd14.vhd')]",
+        "dd15": "[concat(variables('storageEndPoint'),'-dd15.vhd')]",
+        "dd16": "[concat(variables('storageEndPoint'),'-dd16.vhd')]",
         "dataDisk2": [
             {
               "name": "dd1",
@@ -478,15 +479,17 @@
                 },
                 "osProfile": "[variables('osProfile')]",
                 "storageProfile": {
+                    "imageReference": {
+                        "publisher": "[variables('imagePublisher')]",
+                        "offer": "[variables('imageOffer')]",
+                        "sku": "[variables('imageSKU')]",
+                        "version": "[variables('imageVersion')]"
+                },
                 "osDisk" : {
                     "name": "osDisk",
-                    "osType": "Linux",
                     "createOption": "FromImage",
                     "vhd": {
-                    "uri": "[concat('http://', 'maprsa.blob.local.azurestack.external/vhds/', parameters('vmName'), '-osdisk.vhd')]"
-                    },
-                    "image": {
-                    "uri": "https://maprsa.blob.local.azurestack.external/mapr520-mk/mapr520-gove-170518-osDisk.9ad421db-5d64-45da-8483-2ac14705ac53.vhd"
+                    "uri": "[concat(variables('storageEndPoint'),'-osdisk.vhd')]"
                     },
                     "caching": "ReadWrite"
                 },
