@@ -219,7 +219,7 @@
                 "value": "[concat(parameters('nicBasename'), copyIndex(parameters('nodeOffset')))]"
             },            
             "storageEndPoint" : {
-                "value": "[concat(reference(concat('Microsoft.Storage/storageAccounts/',variables('storageAccountBasename'), div(copyIndex(), variables('numberOfNodesPerStorageAccount'))), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).primaryEndpoints.blob, 'vhds/',parameters('vmName'))]"
+                "value": "[concat('http://', variables('storageAccountBasename'), div(copyIndex(), variables('numberOfNodesPerStorageAccount')), '.blob.local.azurestack.external/vhds/', parameters('vmName'))]"
             },            
             "location": {
                 "value": "[parameters('location')]"
