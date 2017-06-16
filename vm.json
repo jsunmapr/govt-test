@@ -29,9 +29,6 @@
         "authenticationType": {
             "type": "string"
         },        
-        "storageAccountName": {
-            "type": "string"
-        },
         "numberOfDataDisks": {
             "type": "int",
             "allowedValues": [

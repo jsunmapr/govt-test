@@ -212,9 +212,6 @@
             "authenticationType": {
                 "value": "[parameters('authenticationType')]"
             },
-            "storageAccountName": {
-                "value": "[concat(variables('storageAccountBasename'), div(copyIndex(), variables('numberOfNodesPerStorageAccount')))]"
-            },
             "numberOfDataDisks":{
                 "value": "[variables('numberOfDataDisks')]"
             },
@@ -222,7 +219,7 @@
                 "value": "[concat(parameters('nicBasename'), copyIndex(parameters('nodeOffset')))]"
             },            
             "storageEndPoint" : {
-                "value": "[concat(reference(concat('Microsoft.Storage/storageAccounts/',parameters('storageAccountName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).primaryEndpoints.blob, 'vhds/',parameters('vmName'))]"
+                "value": "[concat(reference(concat('Microsoft.Storage/storageAccounts/',variables('storageAccountBasename'), div(copyIndex(), variables('numberOfNodesPerStorageAccount'))), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).primaryEndpoints.blob, 'vhds/',parameters('vmName'))]"
             },            
             "location": {
                 "value": "[parameters('location')]"
