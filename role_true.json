@@ -219,8 +219,8 @@
                 "value": "[concat(parameters('nicBasename'), copyIndex(parameters('nodeOffset')))]"
             },            
             "storageEndPoint" : {
-                "value": "[concat('http://', variables('storageAccountBasename'), div(copyIndex(), variables('numberOfNodesPerStorageAccount')), '.blob.local.azurestack.external/vhds/', parameters('vmName'))]"
-            },            
+                "value": "[concat('http://', variables('storageAccountBasename'), div(copyIndex(), variables('numberOfNodesPerStorageAccount')), '.blob.local.azurestack.external/vhds/', variables('vmBasename'), copyIndex(parameters('nodeOffset')))]"
+            },
             "location": {
                 "value": "[parameters('location')]"
             }        
