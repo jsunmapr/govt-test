@@ -140,8 +140,8 @@
             },
             "location": "[parameters('location')]",
             "properties": {
-                "platformUpdateDomainCount": 20,
-                "platformFaultDomainCount": 2
+                "platformUpdateDomainCount": 1,
+                "platformFaultDomainCount": 1
             }
       },
       {
