@@ -51,7 +51,7 @@
         "imageSKU" : "MapR",
         "imageVersion": "latest",
         "storageEndPoint": "[concat(parameters('storageEndpoint'),parameters('vmName'))]",
-        "sizeOfEachDataDiskInGB": 50,
+        "sizeOfEachDataDiskInGB": 255,
         "dd1": "[concat(variables('storageEndPoint'),'-dd1.vhd')]",
         "dd2": "[concat(variables('storageEndPoint'),'-dd2.vhd')]",
         "dd3": "[concat(variables('storageEndPoint'),'-dd3.vhd')]",
